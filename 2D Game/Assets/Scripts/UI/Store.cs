@@ -12,10 +12,13 @@ public class Store : MonoBehaviour
 
     public List<Item> itemList;
 
-    void Start()
+    void Awake()
     {
         storeItemPrefab = Resources.Load("UI/Store Item") as GameObject;
+    }
 
+    void Start()
+    {
         GenerateStoreItems();
     }
 
@@ -40,7 +43,7 @@ public class Store : MonoBehaviour
 
             Item item = itemList[numberList[i]];
 
-            storeItem.transform.Find("Image/Icon").GetComponent<Image>().sprite = item.itemIcon;
+            storeItem.transform.Find("Image/Icon").GetComponent<Image>().sprite = item.itemSprite;
 
             Transform buttonObject = storeItem.transform.Find("Button");
             buttonObject.transform.Find("Text").GetComponent<TMP_Text>().text = item.itemValue.ToString();

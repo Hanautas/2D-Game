@@ -9,7 +9,7 @@ public class Weapon : Item
     public int minDamage;
     public int accuracy;
 
-    public int Attack()
+    public int Damage()
     {
         return Utility.GetRandomValue(minDamage, maxDamage);
     }

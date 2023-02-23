@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Axe
   itemDescription: Used for chopping more than wood.
   itemValue: 15
-  itemIcon: {fileID: 3423540028061366507, guid: a5286c9bfe3ed56429374ae45cc8cb41, type: 3}
+  itemSprite: {fileID: 3423540028061366507, guid: a5286c9bfe3ed56429374ae45cc8cb41, type: 3}
   maxDamage: 6
   minDamage: 4
   accuracy: 75

@@ -6,10 +6,13 @@ public class Chest : MonoBehaviour
 {
     private GameObject coinPrefab;
 
-    IEnumerator Start()
+    void Awake()
     {
         coinPrefab = Resources.Load("UI/Coin") as GameObject;
+    }
 
+    IEnumerator Start()
+    {
         yield return new WaitForSeconds(1f);
 
         StartCoroutine(SpawnCoin(10));

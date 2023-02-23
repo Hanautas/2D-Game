@@ -9,7 +9,7 @@ public class Item : ScriptableObject
     public string itemDescription;
     public int itemValue;
 
-    public Sprite itemIcon;
+    public Sprite itemSprite;
 
     public virtual void Activate(Unit target)
     {

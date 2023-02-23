@@ -24,8 +24,12 @@ public class TurnBasedCombatSystem : MonoBehaviour
     //public Ability currentAbility;
 
     [Header("Unit Lists")]
-    public GameObject[] playerUnitList;
-    public GameObject[] enemyUnitList;
+    public List<Unit> playerUnitList;
+    public List<Unit> enemyUnitList;
+
+    public List<UnitData> enemyUnitData;
+
+    private GameObject unitPrefab;
 
     [Header("Unit Positions")]
     public Transform[] playerPositions;
@@ -34,25 +38,29 @@ public class TurnBasedCombatSystem : MonoBehaviour
     void Awake()
     {
         instance = this;
+
+        unitPrefab = Resources.Load("Units/Unit") as GameObject;
     }
 
     void Start()
     {
-        CreateUnits(playerUnitList, playerPositions, 4);
-        //CreateUnits(enemyUnitList, enemyPositions, 4);
+        CreateUnits(PlayerData.instance.GetUnitList(), playerPositions);
+        CreateUnits(enemyUnitData, enemyPositions);
     }
 
-    private void CreateUnits(GameObject[] units, Transform[] positions, int amount)
+    private void CreateUnits(List<UnitData> units, Transform[] positions)
     {
-        for (int i = 0; i < amount; i++)
+        for (int i = 0; i < units.Count; i++)
         {
-            GameObject unitObject = Instantiate(units[Utility.GetRandomValue(0, enemyUnitList.Length)], transform.position, Quaternion.identity) as GameObject;
+            GameObject unitObject = Instantiate(unitPrefab, transform.position, Quaternion.identity) as GameObject;
 
             unitObject.transform.SetParent(positions[i], false);
 
-            Unit unit = units[i].transform.GetComponent<Unit>();
+            Unit unit = unitObject.transform.GetComponent<Unit>();
 
-            positions[i].Find("Button Canvas/Button").GetComponent<Button>().onClick.AddListener(() => SelectPlayerUnit(unit));
+            unit.SetUnitData(units[i]);
+
+            //positions[i].Find("Button Canvas/Button").GetComponent<Button>().onClick.AddListener(() => SelectPlayerUnit(unit));
         }
     }
 

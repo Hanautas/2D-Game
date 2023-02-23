@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Dagger
   itemDescription: 
   itemValue: 15
-  itemIcon: {fileID: -1949118151123902214, guid: a5286c9bfe3ed56429374ae45cc8cb41, type: 3}
+  itemSprite: {fileID: -1949118151123902214, guid: a5286c9bfe3ed56429374ae45cc8cb41, type: 3}
   maxDamage: 5
   minDamage: 2
   accuracy: 100

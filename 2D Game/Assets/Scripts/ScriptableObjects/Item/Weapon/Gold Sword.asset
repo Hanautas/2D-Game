@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Gold Sword
   itemDescription: Its gold and shiny so it's probably the best weapon in the world.
   itemValue: 50
-  itemIcon: {fileID: -5143735060634138432, guid: a5286c9bfe3ed56429374ae45cc8cb41, type: 3}
+  itemSprite: {fileID: 2977654476207576794, guid: a5286c9bfe3ed56429374ae45cc8cb41, type: 3}
   maxDamage: 0
   minDamage: 0
   accuracy: 0
