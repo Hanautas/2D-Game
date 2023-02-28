@@ -3,16 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Faction
-{
-    Player,
-    Enemy
-}
-
 [Serializable]
 public class UnitData
 {
-    public Faction faction;
+    public Team team;
 
     public string unitName;
     public int maxHealth;

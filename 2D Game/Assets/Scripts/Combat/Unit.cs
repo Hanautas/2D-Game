@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Unit : MonoBehaviour
 {
+    public Team team;
+
     public string unitName;
 
     public bool isDead;
@@ -13,6 +15,13 @@ public class Unit : MonoBehaviour
     public int currentHealth;
 
     public Weapon weapon;
+
+    [Header("Movement")]
+    public bool moveToOriginalPosition;
+    public bool moveToTargetPosition;
+    public float movementSpeed;
+    public Vector3 originalPosition;
+    public Vector3 targetPosition;
 
     [Header("Sprite Renderers")]
     public SpriteRenderer spriteRenderer;
@@ -25,11 +34,44 @@ public class Unit : MonoBehaviour
     [Header("Sliders")]
     public Slider healthSlider;
 
+    [Header("Buttons")]
+    public Button selectButton;
+
+    void Start()
+    {
+        originalPosition = transform.position;
+    }
+
+    void Update()
+    {
+        if (moveToOriginalPosition && !moveToTargetPosition)
+        {
+            if (Vector3.Distance(transform.position, originalPosition) > 0.1f)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, originalPosition, Time.deltaTime * movementSpeed);
+            }
+        }
+        else if (!moveToOriginalPosition && moveToTargetPosition)
+        {
+            if (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * movementSpeed);
+            }
+            else
+            {
+                moveToOriginalPosition = true;
+                moveToTargetPosition = false;
+            }
+        }
+    }
+
     public void SetUnitData(UnitData unitData)
     {
-        if (unitData.faction == Faction.Enemy)
+        team = unitData.team;
+
+        if (team == Team.Enemy)
         {
-            spriteRenderer.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
 
         unitName = unitData.unitName;
@@ -87,5 +129,29 @@ public class Unit : MonoBehaviour
     private void SetHealthSlider(int value)
     {
         healthSlider.value = value;
+    }
+
+    public void MoveToPosition(Vector3 position)
+    {
+        targetPosition = position;
+
+        moveToOriginalPosition = false;
+        moveToTargetPosition = true;
+    }
+
+    public Vector3 GetPosition()
+    {
+        Vector3 position = new Vector3();
+        
+        if (team == Team.Player)
+        {
+            position = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+        }
+        else
+        {
+            position = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
+        }
+
+        return position;
     }
 }

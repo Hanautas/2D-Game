@@ -6,6 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/_Scenes/Main/Persistent Scene.unity
+    guid: da4105e02ee6e4c43b30412346a23d46
+  - enabled: 1
+    path: Assets/_Scenes/Main/Main Menu.unity
+    guid: b39d4edbd703eef449ce27b4ce079ed4
+  - enabled: 1
+    path: Assets/_Scenes/Cutscenes/Opening.unity
+    guid: f912100abd50f5d4cb7ac78c472aea78
+  - enabled: 1
+    path: Assets/_Scenes/Game/World.unity
+    guid: dcf5e6ae5f1b05e489b0a0395210f7e3
+  - enabled: 1
+    path: Assets/_Scenes/Game/Camp.unity
+    guid: 7537238a19d41054e959520c6baeec1e
+  - enabled: 1
+    path: Assets/_Scenes/Game/Town.unity
+    guid: bcf478734da04754e8d3affc378cf28a
+  - enabled: 1
+    path: Assets/_Scenes/Game/Combat.unity
+    guid: 0815c6078835ecb46b2512aa7d9a6348
+  - enabled: 1
+    path: Assets/_Scenes/Cutscenes/Ending.unity
+    guid: ae9bd7ace1defde4f86f7ce21997f1c1
   m_configObjects: {}
