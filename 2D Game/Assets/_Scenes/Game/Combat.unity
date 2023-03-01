@@ -2306,10 +2306,10 @@ RectTransform:
   m_Father: {fileID: 138222830}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 928, y: -176}
-  m_SizeDelta: {x: 320, y: 64}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &25448292
 MonoBehaviour:
@@ -3825,10 +3825,10 @@ RectTransform:
   m_Father: {fileID: 138222830}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 928, y: -80}
-  m_SizeDelta: {x: 320, y: 64}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &948402712
 MonoBehaviour:
@@ -4385,10 +4385,10 @@ RectTransform:
   m_Father: {fileID: 138222830}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 224, y: -176}
-  m_SizeDelta: {x: 320, y: 64}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1391466218
 MonoBehaviour:
@@ -4829,32 +4829,32 @@ MonoBehaviour:
   - team: 1
     unitName: Orc
     maxHealth: 50
-    weapon: {fileID: 11400000, guid: 5a6f94cd5e426da499be8454dbd3e582, type: 2}
+    weapon: {fileID: 11400000, guid: 88465c8a015717748b5d79fc6c12936d, type: 2}
     animatorController: {fileID: 22100000, guid: 69ccfac02478bd2438319cf89c0733f7, type: 2}
   - team: 1
     unitName: Orc
     maxHealth: 75
-    weapon: {fileID: 11400000, guid: ffa4846602287844dbc9b71a8360e189, type: 2}
+    weapon: {fileID: 11400000, guid: 5a6f94cd5e426da499be8454dbd3e582, type: 2}
     animatorController: {fileID: 22100000, guid: 62ea0fd7d5e6f874b89a6a76c1e8907c, type: 2}
   - team: 1
     unitName: Orc
     maxHealth: 100
-    weapon: {fileID: 11400000, guid: 88465c8a015717748b5d79fc6c12936d, type: 2}
+    weapon: {fileID: 11400000, guid: 446d540020bdc21488ff34a4b74ad688, type: 2}
     animatorController: {fileID: 22100000, guid: 655035c149117a547ae26d1969edc4eb, type: 2}
   - team: 1
     unitName: Demon
-    maxHealth: 50
-    weapon: {fileID: 11400000, guid: 3ae3ab291d1f371448f1625142859f46, type: 2}
+    maxHealth: 25
+    weapon: {fileID: 11400000, guid: 6da4aa469d808e3459715db2521ea4bc, type: 2}
     animatorController: {fileID: 22100000, guid: 3a3775f6e3be4894babb9581224a26ad, type: 2}
   - team: 1
     unitName: Demon
-    maxHealth: 75
-    weapon: {fileID: 11400000, guid: 5a6f94cd5e426da499be8454dbd3e582, type: 2}
+    maxHealth: 50
+    weapon: {fileID: 11400000, guid: 38616ea699d91b144b3c9f4e7041b6bc, type: 2}
     animatorController: {fileID: 22100000, guid: b931de02bf2b63a40986545b57aac74b, type: 2}
   - team: 1
     unitName: Demon
     maxHealth: 100
-    weapon: {fileID: 11400000, guid: 88465c8a015717748b5d79fc6c12936d, type: 2}
+    weapon: {fileID: 11400000, guid: 6347fc60cb056de418b874d2818525e2, type: 2}
     animatorController: {fileID: 22100000, guid: d2e398a252857bf419f1c309b44f41c2, type: 2}
   playerPositions:
   - {fileID: 929827838}
@@ -4867,10 +4867,8 @@ MonoBehaviour:
   - {fileID: 793482656}
   - {fileID: 1497300036}
   playerActions: {fileID: 701183436}
-  playerAttackContent: {fileID: 0}
-  playerItemContent: {fileID: 0}
-  cancelButton: {fileID: 0}
-  playerMenus: []
+  playerAttackContent: {fileID: 138222829}
+  playerItemContent: {fileID: 2054156479}
   winScreen: {fileID: 242031333}
   loseScreen: {fileID: 1458462644}
 --- !u!1 &1458462644
@@ -5757,10 +5755,10 @@ RectTransform:
   m_Father: {fileID: 138222830}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 576, y: -176}
-  m_SizeDelta: {x: 320, y: 64}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1810580396
 MonoBehaviour:
@@ -7125,10 +7123,10 @@ RectTransform:
   m_Father: {fileID: 138222830}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 576, y: -80}
-  m_SizeDelta: {x: 320, y: 64}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2129509121
 MonoBehaviour:
@@ -7464,8 +7462,8 @@ RectTransform:
   m_Father: {fileID: 138222830}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 224, y: -80}
-  m_SizeDelta: {x: 320, y: 64}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

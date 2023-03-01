@@ -41,8 +41,6 @@ public class TurnBasedCombatSystem : MonoBehaviour
     public GameObject playerActions;
     public GameObject playerAttackContent;
     public GameObject playerItemContent;
-    public GameObject cancelButton;
-    public List<GameObject> playerMenus;
 
     public GameObject winScreen;
     public GameObject loseScreen;
@@ -111,7 +109,7 @@ public class TurnBasedCombatSystem : MonoBehaviour
                 unit.selectButton.onClick.AddListener(() => SelectPlayerUnit(unit));
                 unit.selectButton.onClick.AddListener(() => PlayerActions(true));
             }
-            else
+            else if (team == Team.Enemy)
             {
                 enemyUnits.Add(unit);
 
@@ -414,7 +412,6 @@ public class TurnBasedCombatSystem : MonoBehaviour
         currentAbility = ability;
 
         //playerAbilitySelect.SetActive(false);
-        cancelButton.SetActive(true);
 
         if (team == Team.Player)
         {
@@ -449,18 +446,6 @@ public class TurnBasedCombatSystem : MonoBehaviour
 
     public void PlayerActions(bool isActive)
     {
-        if (isActive)
-        {
-            playerActions.SetActive(true);
-/*
-            foreach (GameObject obj in playerMenus)
-            {
-                obj.SetActive(false);
-            }*/
-        }
-        else if (!isActive)
-        {
-            playerActions.SetActive(false);
-        }
+        playerActions.SetActive(isActive);
     }
 }
