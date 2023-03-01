@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Heavy Greatsword
   itemDescription: This sword is big enough to literally cut you in half.
-  itemValue: 15
+  itemValue: 100
   itemSprite: {fileID: -8187317486123485221, guid: a5286c9bfe3ed56429374ae45cc8cb41, type: 3}
-  maxDamage: 10
-  minDamage: 5
-  accuracy: 25
+  maxDamage: 25
+  minDamage: 20
+  accuracy: 60

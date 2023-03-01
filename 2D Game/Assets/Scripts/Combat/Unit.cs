@@ -14,12 +14,14 @@ public class Unit : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
 
+    [Header("Combat")]
+    public bool canAttack = true;
     public Weapon weapon;
 
     [Header("Movement")]
     public bool moveToOriginalPosition;
     public bool moveToTargetPosition;
-    public float movementSpeed;
+    public int movementSpeed = 10;
     public Vector3 originalPosition;
     public Vector3 targetPosition;
 
@@ -36,6 +38,7 @@ public class Unit : MonoBehaviour
 
     [Header("Buttons")]
     public Button selectButton;
+    public GameObject selectButtonObject;
 
     void Start()
     {
@@ -129,6 +132,11 @@ public class Unit : MonoBehaviour
     private void SetHealthSlider(int value)
     {
         healthSlider.value = value;
+    }
+
+    public void ActivateSelectButton(bool isActive)
+    {
+        selectButtonObject.SetActive(isActive);
     }
 
     public void MoveToPosition(Vector3 position)

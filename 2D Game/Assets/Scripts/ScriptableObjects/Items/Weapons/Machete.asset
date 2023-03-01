@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Machete
   itemDescription: 
-  itemValue: 15
+  itemValue: 50
   itemSprite: {fileID: -676015613372804901, guid: a5286c9bfe3ed56429374ae45cc8cb41, type: 3}
-  maxDamage: 0
-  minDamage: 0
-  accuracy: 0
+  maxDamage: 15
+  minDamage: 10
+  accuracy: 75

@@ -11,6 +11,19 @@ public class Weapon : Item
 
     public int Damage()
     {
-        return Utility.GetRandomValue(minDamage, maxDamage);
+        int result = Utility.GetRandomValue(0, 100);
+
+        if (accuracy > result)
+        {
+            Debug.Log("Hit!");
+
+            return Utility.GetRandomValue(minDamage, maxDamage);
+        }
+        else
+        {
+            Debug.Log("Missed!");
+
+            return 0;
+        }
     }
 }

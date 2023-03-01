@@ -6,10 +6,10 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Monster 1
+  m_Name: Demon Medium
   m_Controller: {fileID: 9100000, guid: 758a6e5f3df074e4a82dfc88da11594d, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: c06b6438f2c6fa54db3ed4d67ed6bd75, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: d7b5a7fd76251e345995a9e27680d916, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: aafd66b2ccbe1ff4a8f77c3d19c47aa9, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 49ef23ef517af5d4cb8a36a312785d60, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 1041924d78951204e90318009738179b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 128581b454053c84080359a6d2d984c6, type: 2}

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Silver Sword
   itemDescription: 
-  itemValue: 15
+  itemValue: 150
   itemSprite: {fileID: -8491222336511085509, guid: a5286c9bfe3ed56429374ae45cc8cb41, type: 3}
-  maxDamage: 0
-  minDamage: 0
-  accuracy: 0
+  maxDamage: 20
+  minDamage: 10
+  accuracy: 90

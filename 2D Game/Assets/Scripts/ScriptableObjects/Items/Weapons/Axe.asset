@@ -16,6 +16,6 @@ MonoBehaviour:
   itemDescription: Used for chopping more than wood.
   itemValue: 15
   itemSprite: {fileID: 3423540028061366507, guid: a5286c9bfe3ed56429374ae45cc8cb41, type: 3}
-  maxDamage: 6
-  minDamage: 4
+  maxDamage: 15
+  minDamage: 5
   accuracy: 75

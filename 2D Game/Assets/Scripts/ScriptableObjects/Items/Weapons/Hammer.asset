@@ -16,6 +16,6 @@ MonoBehaviour:
   itemDescription: It's hammer time!
   itemValue: 15
   itemSprite: {fileID: 2035668255479547658, guid: a5286c9bfe3ed56429374ae45cc8cb41, type: 3}
-  maxDamage: 0
-  minDamage: 0
-  accuracy: 0
+  maxDamage: 10
+  minDamage: 5
+  accuracy: 70

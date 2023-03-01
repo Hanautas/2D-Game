@@ -61,17 +61,38 @@ public class TurnBasedCombatSystem : MonoBehaviour
         CreateUnits(playerUnitData, playerPositions, Team.Player);
         CreateUnits(enemyUnitData, enemyPositions, Team.Enemy);
 
+        PlayerActions(false);
+
         PlayerTurn();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown("1"))
+        {
+            SelectPlayerUnit(playerUnits[0]);
+            PlayerActions(true);
+        }
+        else if (Input.GetKeyDown("2"))
+        {
+            SelectPlayerUnit(playerUnits[1]);
+            PlayerActions(true);
+        }
+        else if (Input.GetKeyDown("3"))
+        {
+            SelectPlayerUnit(playerUnits[2]);
+            PlayerActions(true);
+        }
+        else if (Input.GetKeyDown("4"))
+        {
+            SelectPlayerUnit(playerUnits[3]);
+            PlayerActions(true);
+        }
     }
 
     private void CreateUnits(List<UnitData> units, Transform[] positions, Team team)
     {
-        int count = units.Count;
-
-        if (count > 4)
-        {
-            count = 4;
-        }
+        int count = Mathf.Clamp(units.Count, 1, 4);
 
         for (int i = 0; i < count; i++)
         {
@@ -84,20 +105,18 @@ public class TurnBasedCombatSystem : MonoBehaviour
             if (team == Team.Player)
             {
                 playerUnits.Add(unit);
+
+                unit.SetUnitData(units[i]);
+
+                unit.selectButton.onClick.AddListener(() => SelectPlayerUnit(unit));
+                unit.selectButton.onClick.AddListener(() => PlayerActions(true));
             }
             else
             {
                 enemyUnits.Add(unit);
-            }
 
-            unit.SetUnitData(units[i]);
+                unit.SetUnitData(units[Utility.GetRandomValue(0, enemyUnitData.Count)]);
 
-            if (team == Team.Player)
-            {
-                unit.selectButton.onClick.AddListener(() => SelectPlayerUnit(unit));
-            }
-            else
-            {
                 unit.selectButton.onClick.AddListener(() => AttackTarget(unit));
             }
         }
@@ -157,7 +176,7 @@ public class TurnBasedCombatSystem : MonoBehaviour
     {
         currentUnit = playerUnit;
     }
-
+/*
     private void SelectNextActiveUnit()
     {
         currentUnitIndex++;
@@ -213,16 +232,22 @@ public class TurnBasedCombatSystem : MonoBehaviour
                 SelectNextActiveUnit();
             }
         }
-    }
+    }*/
 
     private void PlayerTurn()
     {
-        PlayerActions(true);
+        foreach (Unit unit in playerUnits)
+        {
+            if (!unit.IsDead() && unit.canAttack)
+            {
+                unit.ActivateSelectButton(true);
+            }
+        }
     }
 
     private void EnemyTurn()
     {
-        PlayerActions(false);
+        //PlayerActions(false);
 
         AI ai = new AI(currentUnit);
 
@@ -252,7 +277,7 @@ public class TurnBasedCombatSystem : MonoBehaviour
         {
             PlayerActions(false);
 
-            SelectNextActiveUnit();
+            //SelectNextActiveUnit();
 
             Debug.Log("Current Unit: " + currentUnitIndex);
 
@@ -279,6 +304,11 @@ public class TurnBasedCombatSystem : MonoBehaviour
     private void NextRound()
     {
         round++;
+
+        foreach (Unit unit in playerUnits)
+        {
+            unit.canAttack = true;
+        }
 
         Debug.Log("Round: " + round);
     }
@@ -307,7 +337,7 @@ public class TurnBasedCombatSystem : MonoBehaviour
 
         return aliveUnits[Random.Range(0, aliveUnits.Count - 1)];
     }
-
+/*
     public Unit GetRandomEnemyUnit()
     {
         List<Unit> aliveUnits = new List<Unit>();
@@ -321,7 +351,7 @@ public class TurnBasedCombatSystem : MonoBehaviour
         }
 
         return aliveUnits[Random.Range(0, aliveUnits.Count - 1)];
-    }
+    }*/
 
     public void AttackMode(bool isActive)
     {
@@ -333,7 +363,7 @@ public class TurnBasedCombatSystem : MonoBehaviour
             {
                 if (!unit.IsDead())
                 {
-                    //unit.SetTargetButton(true);
+                    unit.ActivateSelectButton(true);
                 }
             }
         }
@@ -345,7 +375,7 @@ public class TurnBasedCombatSystem : MonoBehaviour
             {
                 if (!unit.IsDead())
                 {
-                    //unit.SetTargetButton(false);
+                    unit.ActivateSelectButton(false);
                 }
             }
         }
@@ -353,10 +383,11 @@ public class TurnBasedCombatSystem : MonoBehaviour
 
     public void AttackTarget(Unit target)
     {
-        if (canAttack)
+        if (canAttack && currentUnit.canAttack)
         {
             AttackMode(false);
 
+            currentUnit.canAttack = false;
             currentUnit.MoveToPosition(target.GetPosition());
 
             int damage = currentUnit.Attack();
@@ -421,12 +452,11 @@ public class TurnBasedCombatSystem : MonoBehaviour
         if (isActive)
         {
             playerActions.SetActive(true);
-            //playerActionSelect.SetActive(true);
-
+/*
             foreach (GameObject obj in playerMenus)
             {
                 obj.SetActive(false);
-            }
+            }*/
         }
         else if (!isActive)
         {

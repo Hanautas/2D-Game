@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Sword
   itemDescription: A regular sword.
-  itemValue: 75
+  itemValue: 25
   itemSprite: {fileID: 1705768306203154712, guid: a5286c9bfe3ed56429374ae45cc8cb41, type: 3}
-  maxDamage: 6
-  minDamage: 3
-  accuracy: 90
+  maxDamage: 15
+  minDamage: 10
+  accuracy: 75

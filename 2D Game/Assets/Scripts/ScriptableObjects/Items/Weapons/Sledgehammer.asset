@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7dd5f76ff15560145afe4e614e7c9a2b, type: 3}
-  m_Name: Sledge Hammer
+  m_Name: Sledgehammer
   m_EditorClassIdentifier: 
-  itemName: Sledge Hammer
+  itemName: Sledgehammer
   itemDescription: 
-  itemValue: 15
+  itemValue: 50
   itemSprite: {fileID: 4654193933628500797, guid: a5286c9bfe3ed56429374ae45cc8cb41, type: 3}
-  maxDamage: 0
-  minDamage: 0
-  accuracy: 0
+  maxDamage: 25
+  minDamage: 15
+  accuracy: 60

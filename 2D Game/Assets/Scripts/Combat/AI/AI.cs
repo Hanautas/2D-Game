@@ -12,7 +12,7 @@ public class AI
     }
 
     public void Activate()
-    {
+    {/*
         if (Random.value > 0.5f)
         {
             List<Ability> abilityList = new List<Ability>(); //unit.abilities);
@@ -21,7 +21,7 @@ public class AI
             {
                 Ability ability = GetRandomAbility(abilityList);
 
-                if (true) //unit.CheckStaminaCost(ability.cost))
+                if (unit.CheckStaminaCost(ability.cost))
                 {
                     ability.Activate(unit, TurnBasedCombatSystem.instance.GetRandomPlayerUnit());
 
@@ -32,7 +32,7 @@ public class AI
                     abilityList.Remove(ability);
                 }
             }
-        }
+        }*/
 
         int damage = unit.Attack();
 

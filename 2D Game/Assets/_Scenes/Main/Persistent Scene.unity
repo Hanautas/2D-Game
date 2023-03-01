@@ -157,28 +157,28 @@ MonoBehaviour:
     unitData:
       team: 0
       unitName: Princess
-      maxHealth: 20
+      maxHealth: 100
       weapon: {fileID: 11400000, guid: 81757f3c2449afa4c8cb821541ced0b2, type: 2}
       animatorController: {fileID: 22100000, guid: ae56be6b26cfa104d929b19da853999e, type: 2}
   - isOwned: 1
     unitData:
       team: 0
       unitName: Knight
-      maxHealth: 35
+      maxHealth: 200
       weapon: {fileID: 11400000, guid: 81757f3c2449afa4c8cb821541ced0b2, type: 2}
       animatorController: {fileID: 22100000, guid: 16d934297ab08484faa59dabf2fbb67d, type: 2}
   - isOwned: 1
     unitData:
       team: 0
       unitName: Wizard
-      maxHealth: 25
+      maxHealth: 125
       weapon: {fileID: 11400000, guid: a74b86f8937636246a06ab23bfbbec9b, type: 2}
       animatorController: {fileID: 22100000, guid: 8afb740df1e54e64ea4d9c1760dc7b4f, type: 2}
   - isOwned: 1
     unitData:
       team: 0
       unitName: Reptile
-      maxHealth: 30
+      maxHealth: 125
       weapon: {fileID: 11400000, guid: ffa4846602287844dbc9b71a8360e189, type: 2}
       animatorController: {fileID: 22100000, guid: 9420963c8b43bf445bfee7d4ea9eed19, type: 2}
 --- !u!4 &326088722
