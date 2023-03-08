@@ -34,9 +34,12 @@ public class AI
             }
         }*/
 
-        int damage = unit.Attack();
-
         Unit target = TurnBasedCombatSystem.instance.GetRandomPlayerUnit();
+
+        unit.canAttack = false;
+        unit.MoveToPosition(target.GetPosition());
+
+        int damage = unit.Attack();
 
         target.Damage(damage);
 

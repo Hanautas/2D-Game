@@ -19,7 +19,6 @@ public class TurnBasedCombatSystem : MonoBehaviour
 
     [Header("Current Unit")]
     public bool canAttack;
-    public int currentUnitIndex;
     public Unit currentUnit;
 
     public Ability currentAbility;
@@ -42,6 +41,9 @@ public class TurnBasedCombatSystem : MonoBehaviour
     public GameObject playerAttackContent;
     public GameObject playerItemContent;
 
+    public GameObject playerTurnText;
+    public GameObject enemyTurnText;
+
     public GameObject winScreen;
     public GameObject loseScreen;
 
@@ -61,7 +63,7 @@ public class TurnBasedCombatSystem : MonoBehaviour
 
         PlayerActions(false);
 
-        PlayerTurn();
+        StartCoroutine(PlayerTurn());
     }
 
     void Update()
@@ -107,7 +109,8 @@ public class TurnBasedCombatSystem : MonoBehaviour
                 unit.SetUnitData(units[i]);
 
                 unit.selectButton.onClick.AddListener(() => SelectPlayerUnit(unit));
-                unit.selectButton.onClick.AddListener(() => PlayerActions(true));
+                unit.selectButton.onClick.AddListener(() => AttackMode(true));
+                //unit.selectButton.onClick.AddListener(() => PlayerActions(true));
             }
             else if (team == Team.Enemy)
             {
@@ -174,66 +177,16 @@ public class TurnBasedCombatSystem : MonoBehaviour
     {
         currentUnit = playerUnit;
     }
-/*
-    private void SelectNextActiveUnit()
+
+    private IEnumerator PlayerTurn()
     {
-        currentUnitIndex++;
+        yield return new WaitForSeconds(2f);
 
-        if (turn == Turn.Player)
-        {
-            if (currentUnitIndex < playerUnits.Count)
-            {
-                for (int i = currentUnitIndex; i < playerUnits.Count; i++)
-                {
-                    if (!playerUnits[i].IsDead())
-                    {
-                        currentUnitIndex = i;
+        turn = Turn.Player;
 
-                        currentUnit = playerUnits[i];
+        playerTurnText.SetActive(true);
+        enemyTurnText.SetActive(false);
 
-                        return;
-                    }
-                }
-            }
-            else
-            {
-                currentUnitIndex = 0;
-
-                turn = Turn.Enemy;
-            }
-        }
-        
-        if (turn == Turn.Enemy)
-        {
-            if (currentUnitIndex < enemyUnits.Count)
-            {
-                for (int i = currentUnitIndex; i < enemyUnits.Count; i++)
-                {
-                    if (!enemyUnits[i].IsDead())
-                    {
-                        currentUnitIndex = i;
-
-                        currentUnit = enemyUnits[i];
-
-                        return;
-                    }
-                }
-            }
-            else
-            {
-                currentUnitIndex = -1;
-
-                turn = Turn.Player;
-
-                NextRound();
-
-                SelectNextActiveUnit();
-            }
-        }
-    }*/
-
-    private void PlayerTurn()
-    {
         foreach (Unit unit in playerUnits)
         {
             if (!unit.IsDead() && unit.canAttack)
@@ -243,28 +196,27 @@ public class TurnBasedCombatSystem : MonoBehaviour
         }
     }
 
-    private void EnemyTurn()
+    private IEnumerator EnemyTurn()
     {
-        //PlayerActions(false);
+        yield return new WaitForSeconds(4f);
 
-        AI ai = new AI(currentUnit);
+        turn = Turn.Enemy;
 
-        ai.Activate();
+        playerTurnText.SetActive(false);
+        enemyTurnText.SetActive(true);
+
+        foreach (Unit unit in enemyUnits)
+        {
+            AI ai = new AI(unit);
+
+            ai.Activate();
+
+            yield return new WaitForSeconds(2f);
+        }
     }
 
     public void EndTurn()
     {
-        canAttack = false;
-
-        PlayerActions(false);
-
-        StartCoroutine(WaitEndTurn(1f));
-    }
-
-    private IEnumerator WaitEndTurn(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-
         int isGameOver = IsGameOver();
 
         if (isGameOver != 0)
@@ -273,28 +225,39 @@ public class TurnBasedCombatSystem : MonoBehaviour
         }
         else
         {
-            PlayerActions(false);
-
-            //SelectNextActiveUnit();
-
-            Debug.Log("Current Unit: " + currentUnitIndex);
-
             //currentUnit.CheckStatusEffects();
 
-            if (!currentUnit.IsDead())
+            int count = 0;
+
+            if (turn == Turn.Player)
             {
-                if (turn == Turn.Player)
+                foreach (Unit unit in playerUnits)
                 {
-                    PlayerTurn();
+                    if (!unit.canAttack)
+                    {
+                        count++;
+                    }
                 }
-                else if (turn == Turn.Enemy)
+
+                if (count == playerUnits.Count)
                 {
-                    EnemyTurn();
+                    StartCoroutine(EnemyTurn());
                 }
             }
-            else
+            else if (turn == Turn.Enemy)
             {
-                EndTurn();
+                foreach (Unit unit in enemyUnits)
+                {
+                    if (!unit.canAttack)
+                    {
+                        count++;
+                    }
+                }
+
+                if (count == enemyUnits.Count)
+                {
+                    NextRound();
+                }
             }
         }
     }
@@ -307,6 +270,8 @@ public class TurnBasedCombatSystem : MonoBehaviour
         {
             unit.canAttack = true;
         }
+
+        StartCoroutine(PlayerTurn());
 
         Debug.Log("Round: " + round);
     }

@@ -422,7 +422,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 4, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8649767517487548176
 CanvasRenderer:
@@ -445,7 +445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -946,9 +946,7 @@ MonoBehaviour:
   weaponAnimator: {fileID: 8649767519046137516}
   healthSlider: {fileID: 8649767517574781904}
   selectButton: {fileID: 5351563355649407227}
-  attackButton: {fileID: 1988477560047550495}
   selectButtonObject: {fileID: 8015281886698442302}
-  attackButtonObject: {fileID: 5126537232325004832}
 --- !u!1 &8649767519046137513
 GameObject:
   m_ObjectHideFlags: 0

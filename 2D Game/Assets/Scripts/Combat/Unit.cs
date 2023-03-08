@@ -19,9 +19,8 @@ public class Unit : MonoBehaviour
     public Weapon weapon;
 
     [Header("Movement")]
-    public bool moveToOriginalPosition;
-    public bool moveToTargetPosition;
     public int movementSpeed = 10;
+    public UnitState unitState;
     public Vector3 originalPosition;
     public Vector3 targetPosition;
 
@@ -47,23 +46,26 @@ public class Unit : MonoBehaviour
 
     void Update()
     {
-        if (moveToOriginalPosition && !moveToTargetPosition)
+        if (unitState == UnitState.Return)
         {
             if (Vector3.Distance(transform.position, originalPosition) > 0.1f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, originalPosition, Time.deltaTime * movementSpeed);
             }
+            else if (unitState != UnitState.Stop)
+            {
+                unitState = UnitState.Stop;
+            }
         }
-        else if (!moveToOriginalPosition && moveToTargetPosition)
+        else if (unitState == UnitState.Move)
         {
             if (Vector3.Distance(transform.position, targetPosition) > 0.1f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * movementSpeed);
             }
-            else
+            else if (unitState != UnitState.Stop)
             {
-                moveToOriginalPosition = true;
-                moveToTargetPosition = false;
+                StartCoroutine(PlayAttack());
             }
         }
     }
@@ -108,6 +110,17 @@ public class Unit : MonoBehaviour
         }
     }
 
+    private IEnumerator PlayAttack()
+    {
+        unitState = UnitState.Stop;
+
+        weaponAnimator.SetTrigger("Attack");
+
+        yield return new WaitForSeconds(0.5f);
+
+        unitState = UnitState.Return;
+    }
+
     public void Damage(int damage)
     {
         int newHealth = currentHealth - damage;
@@ -115,6 +128,8 @@ public class Unit : MonoBehaviour
         if (newHealth <= 0)
         {
             isDead = true;
+
+            currentHealth = 0;
         }
         else
         {
@@ -143,8 +158,7 @@ public class Unit : MonoBehaviour
     {
         targetPosition = position;
 
-        moveToOriginalPosition = false;
-        moveToTargetPosition = true;
+        unitState = UnitState.Move;
     }
 
     public Vector3 GetPosition()
