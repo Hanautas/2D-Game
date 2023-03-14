@@ -8,13 +8,15 @@ public class WorldManager : MonoBehaviour
 
     public Transform content;
 
+    public List<Path> pathList;
+
     private GameObject pathPrefab;
-    private GameObject pointPrefab;
+    private GameObject buttonPrefab;
 
     void Awake()
     {
         pathPrefab = Resources.Load("UI/World/Path") as GameObject;
-        pointPrefab = Resources.Load("UI/World/Point") as GameObject;
+        buttonPrefab = Resources.Load("UI/World/Button") as GameObject;
     }
 
     void Start()
@@ -26,31 +28,40 @@ public class WorldManager : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            CreatePath(0);
+            CreatePath(1);
         }
+
+        pathList[0].isAccessible = true;
 
         for (int i = 0; i < pathLength; i++)
         {
-            CreatePath(Random.Range(0, 3));
+            CreatePath(Random.Range(1, 4));
         }
 
         for (int i = 0; i < 2; i++)
         {
-            CreatePath(0);
+            CreatePath(1);
+        }
+
+        for (int i = 1; i < 4; i++)
+        {
+            pathList[pathList.Count - i].SetTilesetType(Tileset.Dungeon);
         }
     }
 
-    public void CreatePath(int pointCount)
+    public void CreatePath(int buttonCount)
     {
         GameObject pathObject = Instantiate(pathPrefab, transform.position, Quaternion.identity) as GameObject;
 
         pathObject.transform.SetParent(content, false);
 
-        for (int i = 0; i <pointCount; i++)
-        {
-            GameObject pointObject = Instantiate(pointPrefab, transform.position, Quaternion.identity) as GameObject;
+        pathList.Add(pathObject.GetComponent<Path>());
 
-            pointObject.transform.SetParent(pathObject.transform, false);
+        for (int i = 0; i <buttonCount; i++)
+        {
+            GameObject buttonObject = Instantiate(buttonPrefab, transform.position, Quaternion.identity) as GameObject;
+
+            buttonObject.transform.SetParent(pathObject.transform, false);
         }
     }
 }

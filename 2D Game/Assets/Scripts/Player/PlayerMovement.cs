@@ -4,28 +4,37 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement instance;
+
     public int movementSpeed = 10;
 
     public Vector3 targetPosition;
 
-    void Start()
+    void Awake()
     {
-        
+        instance = this;
     }
 
     void Update()
     {
+        /*
         if (Input.GetMouseButtonDown(0))
         {
-            targetPosition = Utility.GetMousePosition();
-
-            FlipX(targetPosition.x);
+            SetTargetPosition(Utility.GetMousePosition());
         }
+        */
 
         if (Vector3.Distance(transform.position, targetPosition) > 0.1f)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * movementSpeed);
         }
+    }
+
+    public void SetTargetPosition(Transform target)
+    {
+        targetPosition = target.position;
+
+        FlipX(targetPosition.x);
     }
 
     private void FlipX(float xPosition)
