@@ -41,9 +41,18 @@ TagManager:
   - name: Background
     uniqueID: 2203037869
     locked: 0
+  - name: Path
+    uniqueID: 2290277705
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: UI
+  - name: Combat UI
     uniqueID: 284353193
+    locked: 0
+  - name: Tutorial
+    uniqueID: 3667939225
+    locked: 0
+  - name: UI
+    uniqueID: 780966243
     locked: 0

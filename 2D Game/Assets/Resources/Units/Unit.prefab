@@ -935,9 +935,8 @@ MonoBehaviour:
   currentHealth: 10
   canAttack: 1
   weapon: {fileID: 11400000, guid: 81757f3c2449afa4c8cb821541ced0b2, type: 2}
-  moveToOriginalPosition: 0
-  moveToTargetPosition: 0
   movementSpeed: 10
+  unitState: 0
   originalPosition: {x: 0, y: 0, z: 0}
   targetPosition: {x: 0, y: 0, z: 0}
   spriteRenderer: {fileID: 8649767519308610225}
@@ -1045,7 +1044,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: ab2f9e9673b6ef6418c48ac2f6aee5a8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
