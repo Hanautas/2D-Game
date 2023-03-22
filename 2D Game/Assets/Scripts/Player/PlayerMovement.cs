@@ -37,6 +37,11 @@ public class PlayerMovement : MonoBehaviour
         FlipX(targetPosition.x);
     }
 
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+
     private void FlipX(float xPosition)
     {
         if (xPosition < transform.position.x)

@@ -7,7 +7,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [Header ("Cursors")]
+    [Header("Combat")]
+    public int currentDifficulty = 0;
+
+    [Header("Cursors")]
     public Texture2D cursorArrow;
     public Texture2D cursorChat;
     public Texture2D cursorInteract;

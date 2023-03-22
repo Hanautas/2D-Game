@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 2115005065690246407}
   - component: {fileID: 2115005065690246405}
   - component: {fileID: 2115005065690246406}
+  - component: {fileID: 890988277124110273}
   - component: {fileID: 627212947346496797}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,6 +78,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &890988277124110273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115005065690246520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20e23c1001020124590ec6920f114ed5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInteractable: 1
+  isActivePoint: 0
+  difficulty: 1
+  sceneName: Combat
+  button: {fileID: 627212947346496797}
 --- !u!114 &627212947346496797
 MonoBehaviour:
   m_ObjectHideFlags: 0

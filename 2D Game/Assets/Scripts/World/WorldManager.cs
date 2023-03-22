@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class WorldManager : MonoBehaviour
 {
+    public static WorldManager instance;
+
+    public int pathIndex;
+
     public int pathLength;
 
     public Transform content;
@@ -11,12 +15,14 @@ public class WorldManager : MonoBehaviour
     public List<Path> pathList;
 
     private GameObject pathPrefab;
-    private GameObject buttonPrefab;
+    private GameObject pointPrefab;
 
     void Awake()
     {
+        instance = this;
+
         pathPrefab = Resources.Load("UI/World/Path") as GameObject;
-        buttonPrefab = Resources.Load("UI/World/Button") as GameObject;
+        pointPrefab = Resources.Load("UI/World/Point") as GameObject;
     }
 
     void Start()
@@ -49,7 +55,7 @@ public class WorldManager : MonoBehaviour
         }
     }
 
-    public void CreatePath(int buttonCount)
+    public void CreatePath(int pointCount)
     {
         GameObject pathObject = Instantiate(pathPrefab, transform.position, Quaternion.identity) as GameObject;
 
@@ -57,11 +63,18 @@ public class WorldManager : MonoBehaviour
 
         pathList.Add(pathObject.GetComponent<Path>());
 
-        for (int i = 0; i <buttonCount; i++)
+        for (int i = 0; i <pointCount; i++)
         {
-            GameObject buttonObject = Instantiate(buttonPrefab, transform.position, Quaternion.identity) as GameObject;
+            GameObject pointObject = Instantiate(pointPrefab, transform.position, Quaternion.identity) as GameObject;
 
-            buttonObject.transform.SetParent(pathObject.transform, false);
+            pointObject.transform.SetParent(pathObject.transform, false);
         }
+    }
+
+    public void NextPath()
+    {
+        pathIndex++;
+
+        pathList[pathIndex].SetAccessible();
     }
 }

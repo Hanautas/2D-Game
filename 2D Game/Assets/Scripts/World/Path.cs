@@ -8,60 +8,58 @@ public class Path : MonoBehaviour
     public bool isAccessible = false;
     public bool isComplete = false;
 
-    public string sceneName = "Combat";
-
     public Tileset tilesetType;
 
-    public List<Button> buttonList;
+    public List<Point> pointList;
 
     void Start()
     {
-        GetButtons();
+        GetPoints();
     }
 
-    private void GetButtons()
+    private void GetPoints()
     {
-        buttonList.Clear();
+        pointList.Clear();
 
         foreach (Transform child in transform)
         {
-            Button button = child.GetComponent<Button>();
+            Point point = child.GetComponent<Point>();
 
-            button.onClick.AddListener(() => SetButtonsInteractable(false));
-            button.onClick.AddListener(() => PlayerMovement.instance.SetTargetPosition(child));
-            button.onClick.AddListener(() => LoadScene());
+            point.button.onClick.AddListener(() => ActivatePoint(point));
 
-            buttonList.Add(button);
+            pointList.Add(point);
         }
     }
 
-    public void IsComplete(bool value)
+    public void ActivatePoint(Point point)
+    {
+        if (isAccessible)
+        {
+            isAccessible = false;
+
+            point.ActivatePoint();
+
+            foreach (Point p in pointList)
+            {
+                p.DeactivateButton();
+            }
+        }
+    }
+
+    public void SetComplete()
     {
         isComplete = true;
+
+        WorldManager.instance.NextPath();
     }
 
-    public void SetButtonsInteractable(bool value)
+    public void SetAccessible()
     {
-        foreach (Button button in buttonList)
-        {
-            button.interactable = value;
-        }
+        isAccessible = true;
     }
 
     public void SetTilesetType(Tileset tileset)
     {
         tilesetType = tileset;
-    }
-
-    public void LoadScene()
-    {
-        StartCoroutine(LoadSceneDelay());
-    }
-
-    public IEnumerator LoadSceneDelay()
-    {
-        yield return new WaitForSeconds(2f);
-
-        GameManager.instance.LoadSceneAdditive(sceneName);
     }
 }
