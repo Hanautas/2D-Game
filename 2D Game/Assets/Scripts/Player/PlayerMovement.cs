@@ -15,6 +15,11 @@ public class PlayerMovement : MonoBehaviour
         instance = this;
     }
 
+    void Start()
+    {
+        targetPosition = transform.position;
+    }
+
     void Update()
     {
         /*

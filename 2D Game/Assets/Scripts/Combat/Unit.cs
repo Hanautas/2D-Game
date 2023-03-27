@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Unit : MonoBehaviour
 {
@@ -38,6 +39,16 @@ public class Unit : MonoBehaviour
     [Header("Buttons")]
     public Button selectButton;
     public GameObject selectButtonObject;
+
+    [Header("UI")]
+    public Transform hitContent;
+
+    private GameObject hitPrefab;
+
+    void Awake()
+    {
+        hitPrefab = Resources.Load("UI/Combat/Hit") as GameObject;
+    }
 
     void Start()
     {
@@ -137,6 +148,19 @@ public class Unit : MonoBehaviour
         }
 
         SetHealthSlider(currentHealth);
+
+        GameObject hitObject = Instantiate(hitPrefab, transform.position, Quaternion.identity) as GameObject;
+
+        hitObject.transform.SetParent(hitContent, true);
+
+        string damageText = "Missed!";
+
+        if (damage > 0)
+        {
+            damageText = $"-{damage.ToString()}";
+        }
+
+        hitObject.transform.Find("Text").GetComponent<TMP_Text>().text = damageText;
     }
 
     public bool IsDead()

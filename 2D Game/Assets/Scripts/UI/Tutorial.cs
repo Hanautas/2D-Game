@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
-    public bool showTutorial = true;
-
     public int index;
 
     public Animator animator;
@@ -14,7 +12,7 @@ public class Tutorial : MonoBehaviour
 
     void Start()
     {
-        if (showTutorial)
+        if (!PlayerData.instance.tutorialComplete)
         {
             ShowTutorial();
         }
@@ -44,6 +42,8 @@ public class Tutorial : MonoBehaviour
 
     public void HideTutorial()
     {
+        PlayerData.instance.SetTutorialComplete();
+
         tutorialList[index].SetActive(false);
 
         animator.Play("Hide");

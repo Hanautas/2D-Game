@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ef328fee43f5549934d54a04e2e025, type: 3}
+  m_Name: Wizard_F
+  m_EditorClassIdentifier: 
+  team: 0
+  unitName: Wizard
+  maxHealth: 150
+  weapon: {fileID: 11400000, guid: a74b86f8937636246a06ab23bfbbec9b, type: 2}
+  animatorController: {fileID: 22100000, guid: 8afb740df1e54e64ea4d9c1760dc7b4f, type: 2}

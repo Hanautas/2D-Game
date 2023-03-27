@@ -6,13 +6,20 @@ public class PlayerData : MonoBehaviour
 {
     public static PlayerData instance;
 
-    public static int gold;
+    public bool tutorialComplete;
+
+    public int gold;
 
     public PlayableCharacter[] playableCharacters;
 
     void Awake()
     {
         instance = this;
+    }
+
+    public void SetTutorialComplete()
+    {
+        tutorialComplete = true;
     }
 
     public void SetGold(int amount)

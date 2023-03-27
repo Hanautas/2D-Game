@@ -34,19 +34,19 @@ public class WorldManager : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            CreatePath(1);
+            CreatePath(1, 1);
         }
 
         pathList[0].isAccessible = true;
 
         for (int i = 0; i < pathLength; i++)
         {
-            CreatePath(Random.Range(1, 4));
+            CreatePath(Random.Range(1, 4), Random.Range(1, 5));
         }
 
         for (int i = 0; i < 2; i++)
         {
-            CreatePath(1);
+            CreatePath(1, 5);
         }
 
         for (int i = 1; i < 4; i++)
@@ -55,7 +55,7 @@ public class WorldManager : MonoBehaviour
         }
     }
 
-    public void CreatePath(int pointCount)
+    public void CreatePath(int pointCount, int difficultyRange)
     {
         GameObject pathObject = Instantiate(pathPrefab, transform.position, Quaternion.identity) as GameObject;
 
@@ -68,6 +68,10 @@ public class WorldManager : MonoBehaviour
             GameObject pointObject = Instantiate(pointPrefab, transform.position, Quaternion.identity) as GameObject;
 
             pointObject.transform.SetParent(pathObject.transform, false);
+
+            Point point = pointObject.GetComponent<Point>();
+
+            point.SetDifficulty(Random.Range(1, difficultyRange));
         }
     }
 

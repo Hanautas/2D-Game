@@ -26,6 +26,11 @@ public class Point : MonoBehaviour
         }
     }
 
+    public void SetDifficulty(int value)
+    {
+        difficulty = value;
+    }
+
     public void ActivatePoint()
     {
         isActivePoint = true;
@@ -40,6 +45,8 @@ public class Point : MonoBehaviour
 
     public IEnumerator LoadSceneDelay()
     {
+        CombatManager.instance.SetDifficulty(difficulty);
+
         yield return new WaitForSeconds(1f);
 
         GameManager.instance.LoadSceneAdditive(sceneName);

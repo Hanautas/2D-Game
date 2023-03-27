@@ -27,9 +27,6 @@ public class TurnBasedCombatSystem : MonoBehaviour
     public List<Unit> playerUnits;
     public List<Unit> enemyUnits;
 
-    private List<UnitData> playerUnitData;
-    public List<UnitData> enemyUnitData;
-
     private GameObject unitPrefab;
 
     [Header("Unit Positions")]
@@ -52,14 +49,12 @@ public class TurnBasedCombatSystem : MonoBehaviour
         instance = this;
 
         unitPrefab = Resources.Load("Units/Unit") as GameObject;
-
-        playerUnitData = PlayerData.instance.GetUnitList();
     }
 
     void Start()
     {
-        CreateUnits(playerUnitData, playerPositions, Team.Player);
-        CreateUnits(enemyUnitData, enemyPositions, Team.Enemy);
+        CreateUnits(PlayerData.instance.GetUnitList(), playerPositions, Team.Player);
+        CreateUnits(CombatManager.instance.GetUnitList(), enemyPositions, Team.Enemy);
 
         PlayerActions(false);
 
@@ -116,7 +111,7 @@ public class TurnBasedCombatSystem : MonoBehaviour
             {
                 enemyUnits.Add(unit);
 
-                unit.SetUnitData(units[Utility.GetRandomValue(0, enemyUnitData.Count)]);
+                unit.SetUnitData(units[i]);
 
                 unit.selectButton.onClick.AddListener(() => AttackTarget(unit));
             }

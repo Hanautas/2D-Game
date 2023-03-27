@@ -152,35 +152,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0be0e159949f5994da58e88281223a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorialComplete: 1
+  gold: 0
   playableCharacters:
   - isOwned: 1
-    unitData:
-      team: 0
-      unitName: Princess
-      maxHealth: 100
-      weapon: {fileID: 11400000, guid: 81757f3c2449afa4c8cb821541ced0b2, type: 2}
-      animatorController: {fileID: 22100000, guid: ae56be6b26cfa104d929b19da853999e, type: 2}
+    unitData: {fileID: 11400000, guid: c72e2017d07bf1545ac070b4d2a77dc6, type: 2}
   - isOwned: 1
-    unitData:
-      team: 0
-      unitName: Knight
-      maxHealth: 200
-      weapon: {fileID: 11400000, guid: 81757f3c2449afa4c8cb821541ced0b2, type: 2}
-      animatorController: {fileID: 22100000, guid: 16d934297ab08484faa59dabf2fbb67d, type: 2}
+    unitData: {fileID: 11400000, guid: 855fc9c513826814d8eb635b51dd7db3, type: 2}
   - isOwned: 1
-    unitData:
-      team: 0
-      unitName: Wizard
-      maxHealth: 125
-      weapon: {fileID: 11400000, guid: a74b86f8937636246a06ab23bfbbec9b, type: 2}
-      animatorController: {fileID: 22100000, guid: 8afb740df1e54e64ea4d9c1760dc7b4f, type: 2}
+    unitData: {fileID: 11400000, guid: e2bf8a5fe79ad6142b46357dab211979, type: 2}
   - isOwned: 1
-    unitData:
-      team: 0
-      unitName: Reptile
-      maxHealth: 125
-      weapon: {fileID: 11400000, guid: ffa4846602287844dbc9b71a8360e189, type: 2}
-      animatorController: {fileID: 22100000, guid: 9420963c8b43bf445bfee7d4ea9eed19, type: 2}
+    unitData: {fileID: 11400000, guid: bed66138e1b77b4479a40725d15ece07, type: 2}
 --- !u!4 &326088722
 Transform:
   m_ObjectHideFlags: 0
@@ -194,7 +176,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &629790483
 GameObject:
@@ -263,6 +245,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &647943501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 647943503}
+  - component: {fileID: 647943502}
+  m_Layer: 0
+  m_Name: Combat Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &647943502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647943501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f26c1bdc8e1260e409734f048f097fce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentDifficulty: 1
+  unitGroupList:
+  - unitDataList:
+    - {fileID: 11400000, guid: 441170826adc51a4787a0a9d505f8e28, type: 2}
+  - unitDataList:
+    - {fileID: 11400000, guid: 10e962df29c586d41ab7643b70795702, type: 2}
+    - {fileID: 11400000, guid: 840f603cfcbab62458acc84cd9322882, type: 2}
+    - {fileID: 11400000, guid: 363a30bbfc2232f419f22e09ea64a97d, type: 2}
+    - {fileID: 11400000, guid: 2b07fc8cd597bc34fadc0a18315398d9, type: 2}
+  - unitDataList:
+    - {fileID: 11400000, guid: ac0ed7080193cfd4e9ed42d343101ba1, type: 2}
+    - {fileID: 11400000, guid: 29527faa503b3dd48a7405da9b6514a9, type: 2}
+--- !u!4 &647943503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647943501}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1313535325
 GameObject:
@@ -339,7 +377,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1313535329
 MonoBehaviour:
@@ -393,7 +431,7 @@ GameObject:
   - component: {fileID: 1379877979}
   - component: {fileID: 1379877978}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -411,11 +449,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6842add05b039c14e92280142dce2d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentDifficulty: 0
   cursorArrow: {fileID: 2800000, guid: 7d22b73530b4fad41bbfac99643bba59, type: 3}
   cursorChat: {fileID: 2800000, guid: 296b5374b54961e46a957ae65ee2ae58, type: 3}
   cursorInteract: {fileID: 2800000, guid: e6177f0ef914c014e85ae5eea401223e, type: 3}
-  startSceneName: Combat
+  loadStartScene: 0
+  startSceneName: World
   currentSceneName: 
   loadingScreen: {fileID: 1921050453}
 --- !u!4 &1379877979
@@ -739,7 +777,7 @@ RectTransform:
   - {fileID: 1430133071}
   - {fileID: 1606085301}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ef328fee43f5549934d54a04e2e025, type: 3}
+  m_Name: Demon Medium
+  m_EditorClassIdentifier: 
+  team: 1
+  unitName: Demon
+  maxHealth: 75
+  weapon: {fileID: 11400000, guid: 38616ea699d91b144b3c9f4e7041b6bc, type: 2}
+  animatorController: {fileID: 22100000, guid: b931de02bf2b63a40986545b57aac74b, type: 2}

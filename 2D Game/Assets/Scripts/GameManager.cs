@@ -7,15 +7,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [Header("Combat")]
-    public int currentDifficulty = 0;
-
     [Header("Cursors")]
     public Texture2D cursorArrow;
     public Texture2D cursorChat;
     public Texture2D cursorInteract;
 
     [Header("Scene Management")]
+    public bool loadStartScene = true;
     public string startSceneName;
     public string currentSceneName;
 
@@ -29,9 +27,12 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
 
-        //SceneManager.LoadSceneAsync(startSceneName, LoadSceneMode.Additive);
+        if (loadStartScene)
+        {
+            SceneManager.LoadSceneAsync(startSceneName, LoadSceneMode.Additive);
 
-        currentSceneName = startSceneName;
+            currentSceneName = startSceneName;
+        }
     }
 
     public void LoadScene(string sceneName)

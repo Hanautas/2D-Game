@@ -1,10 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class UnitData
+[CreateAssetMenu(menuName = "ScriptableObjects/Unit/UnitData")]
+public class UnitData : ScriptableObject
 {
     public Team team;
 
