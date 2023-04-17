@@ -33,6 +33,10 @@ public class TurnBasedCombatSystem : MonoBehaviour
     public Transform[] playerPositions;
     public Transform[] enemyPositions;
 
+    [Header("Tileset")]
+    public List<GameObject> tilesetList;
+    public Dictionary<string, GameObject> tilesetDictionary;
+
     [Header("UI")]
     public GameObject playerActions;
     public GameObject playerAttackContent;
@@ -49,10 +53,19 @@ public class TurnBasedCombatSystem : MonoBehaviour
         instance = this;
 
         unitPrefab = Resources.Load("Units/Unit") as GameObject;
+
+        tilesetDictionary = new Dictionary<string, GameObject>();
+
+        foreach (GameObject tileset in tilesetList)
+        {
+            tilesetDictionary.Add(tileset.name, tileset);
+        }
     }
 
     void Start()
     {
+        tilesetDictionary[CombatManager.instance.GetTilesetType().ToString()].SetActive(true);
+
         CreateUnits(PlayerData.instance.GetUnitList(), playerPositions, Team.Player);
         CreateUnits(CombatManager.instance.GetUnitList(), enemyPositions, Team.Enemy);
 
@@ -166,6 +179,8 @@ public class TurnBasedCombatSystem : MonoBehaviour
     public void UnloadCombat()
     {
         GameManager.instance.UnloadScene("Combat");
+
+        WorldManager.instance.NextPath();
     }
 
     public void SelectPlayerUnit(Unit playerUnit)

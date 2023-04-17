@@ -8,6 +8,8 @@ public class CombatManager : MonoBehaviour
 
     public int currentDifficulty = 1;
 
+    public Tileset currentTilesetType;
+
     public List<UnitGroup> unitGroupList;
 
     void Awake()
@@ -18,6 +20,16 @@ public class CombatManager : MonoBehaviour
     public void SetDifficulty(int value)
     {
         currentDifficulty = value;
+    }
+
+    public void SetTilesetType(Tileset tileset)
+    {
+        currentTilesetType = tileset;
+    }
+
+    public Tileset GetTilesetType()
+    {
+        return currentTilesetType;
     }
 
     public List<UnitData> GetUnitList()

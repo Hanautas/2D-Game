@@ -49,8 +49,6 @@ public class Path : MonoBehaviour
     public void SetComplete()
     {
         isComplete = true;
-
-        WorldManager.instance.NextPath();
     }
 
     public void SetAccessible()

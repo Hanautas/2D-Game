@@ -16,6 +16,6 @@ MonoBehaviour:
   itemDescription: 
   itemValue: 0
   itemSprite: {fileID: 0}
-  maxDamage: 10
-  minDamage: 5
+  maxDamage: 25
+  minDamage: 15
   accuracy: 75

@@ -77,6 +77,8 @@ public class WorldManager : MonoBehaviour
 
     public void NextPath()
     {
+        pathList[pathIndex].SetComplete();
+
         pathIndex++;
 
         pathList[pathIndex].SetAccessible();
