@@ -15,13 +15,15 @@ public class Weapon : Item
 
         if (accuracy > result)
         {
-            Debug.Log("Hit!");
+            int damage = Utility.GetRandomValue(minDamage, maxDamage);
 
-            return Utility.GetRandomValue(minDamage, maxDamage);
+            Debug.Log($"{damage} {itemName} damage");
+
+            return damage;
         }
         else
         {
-            Debug.Log("Missed!");
+            Debug.Log("Attack missed");
 
             return 0;
         }

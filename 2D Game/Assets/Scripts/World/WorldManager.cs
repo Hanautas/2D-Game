@@ -32,21 +32,24 @@ public class WorldManager : MonoBehaviour
 
     private void CreateWorld()
     {
+        // 2 Paths, 1 Point, 1 Difficulty, Range False
         for (int i = 0; i < 2; i++)
         {
-            CreatePath(1, 1);
+            CreatePath(1, 1, false);
         }
 
         pathList[0].isAccessible = true;
 
+        // {pathLength} Paths, 1-3 Points, 1-4 Difficulty, Range True
         for (int i = 0; i < pathLength; i++)
         {
-            CreatePath(Random.Range(1, 4), Random.Range(1, 5));
+            CreatePath(Random.Range(1, 4), Random.Range(1, 5), true);
         }
 
+        // 2 Paths, 1 Point, 4 Difficulty, Range False
         for (int i = 0; i < 2; i++)
         {
-            CreatePath(1, 5);
+            CreatePath(1, 4, false);
         }
 
         for (int i = 1; i < 4; i++)
@@ -55,7 +58,7 @@ public class WorldManager : MonoBehaviour
         }
     }
 
-    public void CreatePath(int pointCount, int difficultyRange)
+    public void CreatePath(int pointCount, int difficulty, bool isRange)
     {
         GameObject pathObject = Instantiate(pathPrefab, transform.position, Quaternion.identity) as GameObject;
 
@@ -71,7 +74,14 @@ public class WorldManager : MonoBehaviour
 
             Point point = pointObject.GetComponent<Point>();
 
-            point.SetDifficulty(Random.Range(1, difficultyRange));
+            if (isRange)
+            {
+                point.SetDifficulty(Random.Range(1, difficulty));
+            }
+            else
+            {
+                point.SetDifficulty(difficulty);
+            }
         }
     }
 
@@ -79,8 +89,22 @@ public class WorldManager : MonoBehaviour
     {
         pathList[pathIndex].SetComplete();
 
-        pathIndex++;
+        if (pathIndex == pathList.Count)
+        {
+            CompleteWorld();
+        }
+        else
+        {
+            pathIndex++;
 
-        pathList[pathIndex].SetAccessible();
+            pathList[pathIndex].SetAccessible();
+        }
+    }
+
+    public void CompleteWorld()
+    {
+        GameManager.instance.UnloadScene("World");
+
+        GameManager.instance.LoadScene("Ending");
     }
 }

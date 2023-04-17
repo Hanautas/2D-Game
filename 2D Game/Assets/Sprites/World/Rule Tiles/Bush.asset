@@ -12,13 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
   m_Name: Bush
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 0}
+  m_DefaultSprite: {fileID: -1991327666, guid: 2fc68e104d19b8542b660a2150625bad, type: 3}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules:
   - m_Id: 0
     m_Sprites:
-    - {fileID: 0}
+    - {fileID: -873683467, guid: 2fc68e104d19b8542b660a2150625bad, type: 3}
+    - {fileID: 31240101, guid: 2fc68e104d19b8542b660a2150625bad, type: 3}
+    - {fileID: -1046489346, guid: 2fc68e104d19b8542b660a2150625bad, type: 3}
+    - {fileID: -949773244, guid: 2fc68e104d19b8542b660a2150625bad, type: 3}
+    - {fileID: 1482327960, guid: 2fc68e104d19b8542b660a2150625bad, type: 3}
+    - {fileID: -1991327666, guid: 2fc68e104d19b8542b660a2150625bad, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Point : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Point : MonoBehaviour
     public string sceneName = "Combat";
 
     public Button button;
+
+    public TMP_Text difficultyText;
 
     void Update()
     {
@@ -29,6 +32,32 @@ public class Point : MonoBehaviour
     public void SetDifficulty(int value)
     {
         difficulty = value;
+
+        difficultyText.text = difficulty.ToString();
+
+        switch (difficulty)
+        {
+        case 1:
+            difficultyText.color = new Color(0f, 1f, 0f);
+
+            break;
+        case 2:
+            difficultyText.color = new Color(1f, 1f, 0f);
+
+            break;
+        case 3:
+            difficultyText.color = new Color(1f, 0.5f, 0f);
+
+            break;
+        case 4:
+            difficultyText.color = new Color(1f, 0f, 0f);
+
+            break;
+        default:
+            difficultyText.color = new Color(0f, 0f, 0f);
+
+            break;
+        }
     }
 
     public void ActivatePoint()

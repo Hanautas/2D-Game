@@ -217,7 +217,7 @@ public class TurnBasedCombatSystem : MonoBehaviour
 
         foreach (Unit unit in enemyUnits)
         {
-            if (!unit.IsDead())
+            if (!unit.IsDead() && unit.canAttack)
             {
                 AI ai = new AI(unit);
 
@@ -246,7 +246,7 @@ public class TurnBasedCombatSystem : MonoBehaviour
             {
                 foreach (Unit unit in playerUnits)
                 {
-                    if (!unit.canAttack)
+                    if (unit.IsDead() || !unit.canAttack)
                     {
                         count++;
                     }
@@ -261,7 +261,7 @@ public class TurnBasedCombatSystem : MonoBehaviour
             {
                 foreach (Unit unit in enemyUnits)
                 {
-                    if (!unit.canAttack)
+                    if (unit.IsDead() || !unit.canAttack)
                     {
                         count++;
                     }
@@ -280,6 +280,11 @@ public class TurnBasedCombatSystem : MonoBehaviour
         round++;
 
         foreach (Unit unit in playerUnits)
+        {
+            unit.canAttack = true;
+        }
+
+        foreach (Unit unit in enemyUnits)
         {
             unit.canAttack = true;
         }

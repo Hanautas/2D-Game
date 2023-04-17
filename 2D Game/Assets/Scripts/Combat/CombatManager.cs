@@ -41,13 +41,16 @@ public class CombatManager : MonoBehaviour
         switch(currentDifficulty) 
         {
         case 1:
-            unitCount = 1;
+            unitCount = Random.Range(1, 3);
 
-            unitDataList.Add(GetRandomUnitData(0));
+            for (int i = 0; i < unitCount; i++)
+            {
+                unitDataList.Add(GetRandomUnitData(0));
+            }
 
             break;
         case 2:
-            unitCount = Random.Range(1, 3);
+            unitCount = Random.Range(2, 4);
 
             unitDataList.Add(GetRandomUnitData(0));
 
@@ -60,7 +63,7 @@ public class CombatManager : MonoBehaviour
 
             break;
         case 3:
-            unitCount = Random.Range(2, 4);
+            unitCount = Random.Range(2, 5);
 
             unitDataList.Add(GetRandomUnitData(1));
             unitDataList.Add(GetRandomUnitData(1));

@@ -276,6 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentDifficulty: 1
+  currentTilesetType: 0
   unitGroupList:
   - unitDataList:
     - {fileID: 11400000, guid: 441170826adc51a4787a0a9d505f8e28, type: 2}

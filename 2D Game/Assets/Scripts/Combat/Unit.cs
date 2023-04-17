@@ -165,7 +165,14 @@ public class Unit : MonoBehaviour
 
     public bool IsDead()
     {
-        return isDead;
+        if (isDead || currentHealth <= 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private void SetHealthSlider(int value)

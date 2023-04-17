@@ -16,6 +16,16 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
+    public void SetSpeed(int newSpeed)
+    {
+        followSpeed = newSpeed;
+    }
+
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
+    }
+
     public Vector3 GetTargetPosition(Transform target)
     {
         return new Vector3(target.position.x, target.position.y, -10);
