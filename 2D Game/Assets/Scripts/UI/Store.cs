@@ -14,7 +14,7 @@ public class Store : MonoBehaviour
 
     void Awake()
     {
-        storeItemPrefab = Resources.Load("UI/Store Item") as GameObject;
+        storeItemPrefab = Resources.Load("UI/Town/Store Item") as GameObject;
     }
 
     void Start()
@@ -49,13 +49,16 @@ public class Store : MonoBehaviour
             buttonObject.transform.Find("Text").GetComponent<TMP_Text>().text = item.itemValue.ToString();
 
             Button itemButton = buttonObject.GetComponent<Button>();
-            itemButton.onClick.AddListener(() => BuyItem());
+            itemButton.onClick.AddListener(() => BuyItem(item));
         }
     }
 
-    public void BuyItem()
+    public void BuyItem(Item item)
     {
-
+        if (PlayerData.instance.CheckGold(item.itemValue))
+        {
+            PlayerData.instance.SetGold(-item.itemValue);
+        }
     }
 
     public void SellItem()

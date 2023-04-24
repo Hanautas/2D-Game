@@ -140,6 +140,8 @@ public class TurnBasedCombatSystem : MonoBehaviour
         if (isGameOver == 1)
         {
             winScreen.SetActive(true);
+
+            PlayerData.instance.SetGold(100 * CombatManager.instance.currentDifficulty);
         }
         else if (isGameOver == 2)
         {
@@ -185,7 +187,10 @@ public class TurnBasedCombatSystem : MonoBehaviour
 
     public void SelectPlayerUnit(Unit playerUnit)
     {
-        currentUnit = playerUnit;
+        if (turn == Turn.Player)
+        {
+            currentUnit = playerUnit;
+        }
     }
 
     private IEnumerator PlayerTurn()
@@ -336,7 +341,7 @@ public class TurnBasedCombatSystem : MonoBehaviour
 
     public void AttackMode(bool isActive)
     {
-        if (isActive)
+        if (isActive && turn == Turn.Player)
         {
             canAttack = true;
 
