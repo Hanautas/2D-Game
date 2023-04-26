@@ -25,6 +25,8 @@ public class Path : MonoBehaviour
         {
             Point point = child.GetComponent<Point>();
 
+            point.SetPath(this);
+
             point.button.onClick.AddListener(() => ActivatePoint(point));
 
             pointList.Add(point);
@@ -59,5 +61,10 @@ public class Path : MonoBehaviour
     public void SetTilesetType(Tileset tileset)
     {
         tilesetType = tileset;
+    }
+
+    public Tileset GetTilesetType()
+    {
+        return tilesetType;
     }
 }

@@ -17,6 +17,9 @@ public class PlayerData : MonoBehaviour
     [Header("UI")]
     public TMP_Text goldText;
 
+    [Header("Items")]
+    public List<Item> itemList;
+
     [Header("Characters")]
     public PlayableCharacter[] playableCharacters;
 
@@ -27,7 +30,7 @@ public class PlayerData : MonoBehaviour
 
     void Start()
     {
-        SetGold(0);
+        SetGold(100);
     }
 
     void Update()
@@ -71,6 +74,11 @@ public class PlayerData : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public void AddItem(Item item)
+    {
+        itemList.Add(item);
     }
 
     public List<UnitData> GetUnitList()

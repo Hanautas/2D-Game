@@ -4,23 +4,29 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
+    public string sceneToLoad;
 
-    void Update()
-    {
-        
-    }
+    public GameObject[] menus;
 
     public void Play()
     {
-        GameManager.instance.LoadScene("Opening");
+        GameManager.instance.LoadScene(sceneToLoad);
+    }
+
+    public void showMenu(int index)
+    {
+        foreach (GameObject menu in menus)
+        {
+            menu.SetActive(false);
+        }
+
+        menus[index].SetActive(true);
     }
 
     public void Quit()
     {
+        Debug.Log("Quit");
+
         Application.Quit();
     }
 }

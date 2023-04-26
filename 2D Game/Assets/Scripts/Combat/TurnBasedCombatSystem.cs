@@ -141,7 +141,7 @@ public class TurnBasedCombatSystem : MonoBehaviour
         {
             winScreen.SetActive(true);
 
-            PlayerData.instance.SetGold(100 * CombatManager.instance.currentDifficulty);
+            SetPlayerGold();
         }
         else if (isGameOver == 2)
         {
@@ -162,6 +162,20 @@ public class TurnBasedCombatSystem : MonoBehaviour
         else
         {
             return 0;
+        }
+    }
+
+    private void SetPlayerGold()
+    {
+        int amount = 100 * CombatManager.instance.currentDifficulty;
+
+        int roundAmount = 100 - (10 * round);
+
+        PlayerData.instance.SetGold(100 * CombatManager.instance.currentDifficulty);
+
+        if (roundAmount > 0)
+        {
+            PlayerData.instance.SetGold(roundAmount);
         }
     }
 

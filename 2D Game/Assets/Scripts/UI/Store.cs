@@ -59,6 +59,8 @@ public class Store : MonoBehaviour
         {
             PlayerData.instance.SetGold(-item.itemValue);
         }
+
+        PlayerData.instance.AddItem(item);
     }
 
     public void SellItem()

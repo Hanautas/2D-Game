@@ -16,6 +16,8 @@ public class Point : MonoBehaviour
 
     public TMP_Text difficultyText;
 
+    private Path parentPath;
+
     void Update()
     {
         if (isActivePoint)
@@ -27,6 +29,11 @@ public class Point : MonoBehaviour
                 StartCoroutine(LoadSceneDelay());
             }
         }
+    }
+
+    public void SetPath(Path path)
+    {
+        parentPath = path;
     }
 
     public void SetDifficulty(int value)
@@ -76,7 +83,19 @@ public class Point : MonoBehaviour
     {
         CombatManager.instance.SetDifficulty(difficulty);
 
+        CombatManager.instance.SetTilesetType(parentPath.GetTilesetType());
+
         yield return new WaitForSeconds(1f);
+
+        GameManager.instance.LoadSceneAdditive(sceneName);
+    }
+
+    [ContextMenu("Debug Load Scene")]
+    public void DebugLoadScene()
+    {
+        CombatManager.instance.SetDifficulty(difficulty);
+
+        CombatManager.instance.SetTilesetType(parentPath.GetTilesetType());
 
         GameManager.instance.LoadSceneAdditive(sceneName);
     }

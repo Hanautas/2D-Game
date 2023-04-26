@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
-  m_Name: Wall
+  m_Name: Wall Top
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 8690714160246614940, guid: ade256a416c4a0243b66e21711eca79e, type: 3}
+  m_DefaultSprite: {fileID: 5689179024978789148, guid: ade256a416c4a0243b66e21711eca79e, type: 3}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules:
   - m_Id: 2
     m_Sprites:
-    - {fileID: -2597198162302776380, guid: ade256a416c4a0243b66e21711eca79e, type: 3}
+    - {fileID: 4950387820128656522, guid: ade256a416c4a0243b66e21711eca79e, type: 3}
     - {fileID: 8690714160246614940, guid: ade256a416c4a0243b66e21711eca79e, type: 3}
     - {fileID: -6090686176828050188, guid: ade256a416c4a0243b66e21711eca79e, type: 3}
     m_GameObject: {fileID: 0}
@@ -35,7 +35,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 4
     m_Sprites:
-    - {fileID: -6090686176828050188, guid: ade256a416c4a0243b66e21711eca79e, type: 3}
+    - {fileID: -583455943482852542, guid: ade256a416c4a0243b66e21711eca79e, type: 3}
     - {fileID: 8690714160246614940, guid: ade256a416c4a0243b66e21711eca79e, type: 3}
     - {fileID: -6090686176828050188, guid: ade256a416c4a0243b66e21711eca79e, type: 3}
     m_GameObject: {fileID: 0}
@@ -52,7 +52,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 3
     m_Sprites:
-    - {fileID: 8690714160246614940, guid: ade256a416c4a0243b66e21711eca79e, type: 3}
+    - {fileID: 5689179024978789148, guid: ade256a416c4a0243b66e21711eca79e, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1

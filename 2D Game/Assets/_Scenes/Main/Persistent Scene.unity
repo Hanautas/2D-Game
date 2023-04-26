@@ -152,10 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0be0e159949f5994da58e88281223a39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialComplete: 1
+  tutorialComplete: 0
   totalGold: 0
   currentGold: 0
   goldText: {fileID: 1977415412}
+  itemList: []
   playableCharacters:
   - isOwned: 1
     unitData: {fileID: 11400000, guid: c72e2017d07bf1545ac070b4d2a77dc6, type: 2}
