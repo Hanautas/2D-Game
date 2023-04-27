@@ -15,6 +15,7 @@ public class PlayerData : MonoBehaviour
     public int currentGold;
 
     [Header("UI")]
+    public Animator playerUIAnimator;
     public TMP_Text goldText;
 
     [Header("Items")]
@@ -55,6 +56,11 @@ public class PlayerData : MonoBehaviour
     public void SetTutorialComplete()
     {
         tutorialComplete = true;
+    }
+
+    public void SetPlayerUIActive(bool isActive)
+    {
+        playerUIAnimator.SetBool("IsShowing", isActive);
     }
 
     public void SetGold(int amount)

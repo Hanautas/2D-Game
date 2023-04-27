@@ -901,6 +901,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffcae736be8340a439a59c93b38a14c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShowing: 0
+  partyManagement: {fileID: 1038044733}
 --- !u!4 &565088414
 Transform:
   m_ObjectHideFlags: 0
@@ -21935,7 +21937,7 @@ GameObject:
   - component: {fileID: 1038044736}
   - component: {fileID: 1038044735}
   m_Layer: 5
-  m_Name: Manage Party
+  m_Name: Party Management
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26297,10 +26299,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1038044733}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 565088413}
+        m_TargetAssemblyTypeName: PartyManager, Assembly-CSharp
+        m_MethodName: SetPartyManagementActive
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -26381,7 +26383,7 @@ GameObject:
   - component: {fileID: 8552021737592556463}
   - component: {fileID: 8552021737592556460}
   m_Layer: 5
-  m_Name: Manage Party Button
+  m_Name: Party Management Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

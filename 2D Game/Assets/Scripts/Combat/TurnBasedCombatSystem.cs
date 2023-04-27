@@ -199,11 +199,10 @@ public class TurnBasedCombatSystem : MonoBehaviour
         return true;
     }
 
+    [ContextMenu("Unload Combat")]
     public void UnloadCombat()
     {
-        WorldManager.instance.NextPath();
-
-        GameManager.instance.UnloadScene("Combat");
+        WorldManager.instance.ContinueWorld("Combat");
     }
 
     public void SelectPlayerUnit(Unit playerUnit)

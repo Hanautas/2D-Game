@@ -33,10 +33,12 @@ public class WorldManager : MonoBehaviour
     private void CreateWorld()
     {
         // 2 Paths, 1 Point, 1 Difficulty, Range False
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 1; i++)
         {
             CreatePath(1, 1, false);
         }
+
+        CreatePath(1, 0, false);
 
         pathList[0].isAccessible = true;
 
@@ -99,6 +101,13 @@ public class WorldManager : MonoBehaviour
 
             pathList[pathIndex].SetAccessible();
         }
+    }
+
+    public void ContinueWorld(string sceneName)
+    {
+        WorldManager.instance.NextPath();
+
+        GameManager.instance.UnloadScene(sceneName);
     }
 
     public void CompleteWorld()

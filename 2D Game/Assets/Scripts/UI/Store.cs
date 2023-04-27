@@ -67,4 +67,10 @@ public class Store : MonoBehaviour
     {
 
     }
+
+    [ContextMenu("Unload Town")]
+    public void UnloadTown()
+    {
+        WorldManager.instance.ContinueWorld("Town");
+    }
 }

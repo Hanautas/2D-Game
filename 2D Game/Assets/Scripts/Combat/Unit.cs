@@ -88,6 +88,8 @@ public class Unit : MonoBehaviour
         if (team == Team.Enemy)
         {
             transform.localScale = new Vector3(-1, 1, 1);
+
+            healthSlider.SetDirection(Slider.Direction.RightToLeft, false);
         }
 
         unitName = unitData.unitName;

@@ -8,8 +8,15 @@ public class MainMenu : MonoBehaviour
 
     public GameObject[] menus;
 
+    void Start()
+    {
+        PlayerData.instance.SetPlayerUIActive(false);
+    }
+
     public void Play()
     {
+        PlayerData.instance.SetPlayerUIActive(true);
+
         GameManager.instance.LoadScene(sceneToLoad);
     }
 

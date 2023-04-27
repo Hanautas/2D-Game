@@ -61,7 +61,9 @@ public class Point : MonoBehaviour
 
             break;
         default:
-            difficultyText.color = new Color(0f, 0f, 0f);
+            difficultyText.color = new Color(1f, 1f, 1f);
+
+            sceneName = "Town";
 
             break;
         }

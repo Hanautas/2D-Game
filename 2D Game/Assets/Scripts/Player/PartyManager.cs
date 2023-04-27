@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PartyManager : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
+    public bool isShowing;
 
-    void Update()
+    public GameObject partyManagement;
+
+    public void SetPartyManagementActive()
     {
-        
+        isShowing = !isShowing;
+
+        partyManagement.SetActive(isShowing);
     }
 }
