@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public enum Turn
 {
@@ -47,6 +48,8 @@ public class TurnBasedCombatSystem : MonoBehaviour
 
     public GameObject winScreen;
     public GameObject loseScreen;
+
+    public TMP_Text goldText;
 
     void Awake()
     {
@@ -169,14 +172,18 @@ public class TurnBasedCombatSystem : MonoBehaviour
     {
         int amount = 100 * CombatManager.instance.currentDifficulty;
 
-        int roundAmount = 100 - (10 * round);
+        int bonusAmount = 100 - (10 * round);
 
         PlayerData.instance.SetGold(100 * CombatManager.instance.currentDifficulty);
 
-        if (roundAmount > 0)
+        if (bonusAmount > 0)
         {
-            PlayerData.instance.SetGold(roundAmount);
+            PlayerData.instance.SetGold(bonusAmount);
         }
+
+        int totalGold = amount + bonusAmount;
+
+        goldText.text = $"You earned {totalGold} gold!";
     }
 
     private bool IsUnitListDead(List<Unit> unitList)
@@ -194,9 +201,9 @@ public class TurnBasedCombatSystem : MonoBehaviour
 
     public void UnloadCombat()
     {
-        GameManager.instance.UnloadScene("Combat");
-
         WorldManager.instance.NextPath();
+
+        GameManager.instance.UnloadScene("Combat");
     }
 
     public void SelectPlayerUnit(Unit playerUnit)
@@ -449,5 +456,20 @@ public class TurnBasedCombatSystem : MonoBehaviour
     public void PlayerActions(bool isActive)
     {
         playerActions.SetActive(isActive);
+    }
+
+    [ContextMenu("Debug Heal All Players")]
+    public void DebugHealAllPlayers()
+    {
+        foreach (Unit unit in playerUnits)
+        {
+            unit.SetHealth(1000);
+        }
+    }
+
+    [ContextMenu("Debug Win")]
+    public void DebugWin()
+    {
+        StartCoroutine(GameOver(1));
     }
 }

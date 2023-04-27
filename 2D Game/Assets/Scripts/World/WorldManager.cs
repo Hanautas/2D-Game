@@ -103,8 +103,8 @@ public class WorldManager : MonoBehaviour
 
     public void CompleteWorld()
     {
-        GameManager.instance.UnloadScene("World");
-
         GameManager.instance.LoadScene("Ending");
+
+        GameManager.instance.UnloadScene("World");
     }
 }
